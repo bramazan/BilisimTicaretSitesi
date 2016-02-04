@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Kategori";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<E_ticaret.Models.Kategori>
+
+
+@using (Html.BeginForm())
+{
+    <p>
+        Kategori Adına Göre Arama:@Html.TextBox("Arama")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+
+<div class="panel panel-gray">
+    <div class="panel-heading">
+        <div class="col-md-12">
+            <h4>KATEGORİLER</h4>
+
+
+            <a href="javascript:;" data-toggle="tooltip modal" data-width="4" data-source="/Admin/KategoriEkle" data-title="Yeni Kategori" data-function="CloseModal" class="btn btn-success btn-sm tooltips pull-right" style="margin-top:6px;" title="Yeni Kategori"><i class="fa fa-plus">&nbsp;&nbsp; Yeni Kategori</i></a>
+
+
+        </div>
+    </div>
+
+    <style>
+        .verticalcenter {
+            vertical-align: middle !important;
+        }
+    </style>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr class="alert alert-danger">
+                            <th class="col-md-3 text-center verticalcenter"> Kategori ID</th>
+                           
+                            <th class="col-md-4 text-center verticalcenter">Ana Kategori Id</th>
+                            <th class="col-md-3 text-center verticalcenter"> @Html.ActionLink("Kategori Adı", "kategori", new { siralama = ViewBag.NameSortParm })</th>
+                            @*<th class="col-md-2">Bitiş Tarihi</th>*@
+                            <th class="col-md-2 text-center  verticalcenter ">İşlem</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                               
+                                @*<td>@item.firmaresmi</td>*@
+                                <td class="text-center verticalcenter">@item.kategoriId</td>
+                                <td class="text-center verticalcenter">@item.anakategoriId</td>
+                                <td class="verticalcenter">@item.kategoriadi</td>
+                                @*<td>@String.Format("{0:d}", @item.baslangictarihi)</td>
+                                    <td>@String.Format("{0:d}", @item.bitistarihi)</td>*@
+
+
+                                <td class="text-center verticalcenter">
+                                    <a href='javascript:;' data-toggle='tooltip modal' data-source="/Admin/KategoriDuzenle?KategoriID=@item.kategoriId" data-title='Kategori Düzenle' data-function='CloseModal' data-width='4' class='btn btn-xs btn-info tooltips' title='Düzenle'>Düzenle</a>
+                                    <a href="/Admin/KategoriSil?KategoriID=@item.kategoriId" class='btn btn-xs btn-danger tooltips' onclick="return confirm('Bu  Kategoriyi silmek istediğinize emin misiniz?');" title='Sil'>Sil</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    @Html.PagedListPager(Model, page => Url.Action("kategori", new { page = page }), new PagedListRenderOptions { LinkToFirstPageFormat = "<< İlk", LinkToPreviousPageFormat = "< Önceki", LinkToNextPageFormat = "Sonraki >", LinkToLastPageFormat = "Son >>" })
+                   
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

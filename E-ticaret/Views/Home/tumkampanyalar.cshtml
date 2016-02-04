@@ -1,0 +1,107 @@
+﻿@{
+    Layout = "~/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "Sakarya Bilisim | Tum Kampanyalar";
+    ViewBag.Description = "Sakarya Bilisim sayfası";
+    ViewBag.Keywords = "Sakarya , bilisim,referanslar, sayfası";
+}
+
+
+
+
+
+
+
+
+
+
+<div id="sidebar" class="span3">
+    <div class="well well-small"><a id="myCart" href="product_summary.html"><img src="~/themes/images/ico-cart.png" alt="cart"> Sepetiniz  <span class="badge badge-warning pull-right">$155.00</span></a></div>
+    <ul id="sideManu" class="nav nav-tabs nav-stacked">
+        @{int sayac = 0; }
+        @foreach (var item in Model.anaKategoriListesi)
+        {
+            if (sayac == 0)
+            {
+                <li class="subMenu open">
+                    <a>@item.kategoriadi</a>
+                    <ul>
+                        @foreach (var item2 in Model.altkategorilistesi)
+                        {
+                            if (@item2.anakategoriId == @item.kategoriId)
+                            {
+                                <li><a href="/Home/products/@item2.kategoriId" +@item.kategoriid+""><i class="icon-chevron-right"></i>@item2.kategoriadi</a></li>
+
+                            }
+
+                        }
+                    </ul>
+                </li>
+            }
+            else
+            {
+                <li class="subMenu">
+                    <a>@item.kategoriadi</a>
+                    <ul style="display:none">
+                        @foreach (var item2 in Model.altkategorilistesi)
+                        {
+                            if (@item2.anakategoriId == @item.kategoriId)
+                            {
+                                <li><a href="/Home/products/@item2.kategoriId" +@item.kategoriid+""><i class="icon-chevron-right"></i>@item2.kategoriadi</a></li>
+
+                            }
+
+                        }
+
+                    </ul>
+                </li>
+            }
+
+            sayac++;
+        }
+        
+    </ul>
+    <br />
+    <h4>Günün Ürünleri</h4>
+    @foreach (var item in Model.gununurunleri)
+    {
+        <div class="thumbnail">
+            @*Bu kısımda olan Thumbnailları resim olarak db den çekicez *@
+            <a href="product_details.html"><img src="data:image/png;base64,@System.Convert.ToBase64String(item.urunresim)" width="270" height="378" alt="" /></a>
+            <div class="caption">
+                <h5>@item.urunadi</h5>
+                <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">EKLE <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#"><h7>@item.urunfiyat ₺</h7></a></h4>
+            </div>
+        </div><br />
+
+
+    }
+    <div class="thumbnail">
+        <img src="~/themes/images/payment_methods.png" title="Bootshop Payment Methods" alt="Payments Methods">
+        <div class="caption">
+            <h5>Payment Methods</h5>
+        </div>
+    </div>
+</div>
+
+
+
+<ul class="thumbnails">
+
+    @foreach (var item in Model.tumkampanyalar)
+    {
+        <li class="span3">
+            <div class="thumbnail">
+                <a href="/Home/productsdetay/@item.urunId"><img src="data:image/png;base64,@System.Convert.ToBase64String(item.kampanyagorseli)" width="270" height="378" alt="" /></a>
+                <div class="caption">
+                    <h5>@item.Urun.urunadi</h5>
+                    <p>
+
+                    </p>
+
+                    <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">EKLE <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#"><h7>@item.Urun.urunfiyat ₺</h7></a></h4>
+                </div>
+            </div>
+        </li>
+
+    }
+</ul>

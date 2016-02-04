@@ -1,0 +1,77 @@
+﻿@model E_ticaret.Models.Uyeler
+
+@{
+    ViewBag.Title = "Signin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<title>Üye Girişi</title>
+<!-- container -->
+
+<div class="well well-transparent">
+    <div class="container">
+
+        <ol class="breadcrumb">
+            <li>@Html.ActionLink("Ana Sayfa", "Index", "Home")</li>
+            <li class="active">Üye Girişi</li>
+        </ol>
+
+        <div class="row">
+            <!-- Article main content -->
+            <article class="col-xs-12 maincontent">
+                @*<header class="page-header">
+                        <h1 class="page-title">Üye Girişi</h1>
+                    </header>*@
+
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            @using (Html.BeginForm("Signin", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true)
+                                <h3 class="thin text-center">Üyeliğin ile giriş yapabilirsin</h3>
+
+                                <p class="text-center text-muted">
+                                    @Html.ActionLink("Üye Ol", "Signup", "Home") diyerek üyeliğin yoksa üye olabilirsin.
+                                </p>
+                                <hr>
+
+                                <form>
+                                    <div class="top-margin">
+                                        <label>Kullanıcı Adı <span class="text-danger">*</span></label>
+                                        @Html.TextBoxFor(m => m.email, new { @class = "form-control" })
+                                    </div>
+                                    <div class="top-margin">
+                                        <label>Şifre <span class="text-danger">*</span></label>
+                                        @Html.PasswordFor(m => m.parola, new { @class = "form-control" })
+                                    </div>
+
+                                    <hr>
+
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <b><a href="#">Şifrenizi mi unuttunuz?</a></b>
+                                        </div>
+                                        <div class="col-lg-4 text-right">
+                                            <input type="submit" value="Giriş" class="btn btn-success" />
+                                        </div>
+                                    </div>
+                                </form>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-md-4">
+                        <section id="socialLoginForm">
+                            @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
+                        </section>
+                    </div>*@
+
+            </article>
+            <!-- /Article -->
+
+        </div>
+    </div>	<!-- /container -->
+</div>
+

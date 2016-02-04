@@ -1,0 +1,8 @@
+﻿@if (HttpContext.Current.Session["Culture"].ToString() == "tr")
+{
+    <li>@Html.ActionLink("English", "ChangeCulture", "Home", new { @style = "font-weight: bold;" ,lang = "en", returnurl = this.Request.RawUrl }, null)</li>
+}
+else
+{
+    <li>@Html.ActionLink("Türkçe", "ChangeCulture", "Home", new { @style = "font-weight: bold;" ,lang = "tr", returnUrl = this.Request.RawUrl }, null)</li>
+}

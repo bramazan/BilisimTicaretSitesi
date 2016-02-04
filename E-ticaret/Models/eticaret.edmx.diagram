@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c6afbfc63390432d96378c5ce3723351" Name="Diagram1">
+        <EntityTypeShape EntityType="eticaretModel.Banka" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.Fatura" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.Fiyat" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.Kampanya" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.Kargo" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.Kategori" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.Marka" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.OdemeSecenek" Width="1.5" PointX="8.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.Rol" Width="1.5" PointX="0.75" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.Sepet" Width="1.5" PointX="5.25" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.Siparis" Width="1.5" PointX="10.5" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.Slider" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.Taksitler" Width="1.5" PointX="8.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.TaksitTablo" Width="1.5" PointX="6" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.Urun" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.UrunOzellik" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.UrunOzellikDetay" Width="2" PointX="8.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.UrunResim" Width="1.5" PointX="5.25" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.UrunYorum" Width="1.5" PointX="5.25" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.UyeGorus" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="eticaretModel.Uyeler" Width="1.875" PointX="2.875" PointY="17.625" IsExpanded="true" />
+        <AssociationConnector Association="eticaretModel.FK_Taksitler_Banka" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Fatura_Siparis" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Fatura_Uyeler" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Fiyat_Urun" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Kampanya_Urun" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Urun_Kampanya" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Siparis_Kargo" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Urun_Kategori" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Urun_Marka" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Siparis_OdemeSecenek" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Uyeler_Rol" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Sepet_Urun" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Sepet_Uyeler" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Siparis_Sepet" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Siparis_Taksitler" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Siparis_Urun" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Urun_Siparis" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Taksitler_TaksitTablo" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Taksitler_Urun" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_Urun_UrunOzellik" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_UrunOzellikDetay_Urun" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_UrunResim_Urun" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_UrunYorum_Urun" ManuallyRouted="false" />
+        <AssociationConnector Association="eticaretModel.FK_UrunOzellikDetay_UrunOzellik" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

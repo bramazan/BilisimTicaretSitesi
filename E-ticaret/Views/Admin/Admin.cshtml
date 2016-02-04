@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<E_ticaret.Models.Uyeler>
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+
+@using (Html.BeginForm())
+{
+    <p>
+        Admin Adına Göre Arama:@Html.TextBox("Arama")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+<div class="panel panel-gray">
+    <div class="panel-heading">
+        <div class="col-md-12">
+            <h4>ADMİNLER</h4>
+
+
+            <a href="javascript:;" data-toggle="tooltip modal" data-width="4" data-source="/Admin/AdminEkle" data-title="Yeni Admin" data-function="CloseModal" class="btn btn-success btn-sm tooltips pull-right" style="margin-top:6px;" title="Yeni Admin"><i class="fa fa-plus">&nbsp;&nbsp; Yeni Admin</i></a>
+
+
+        </div>
+    </div>
+
+    <style>
+        .verticalcenter {
+            vertical-align: middle !important;
+        }
+    </style>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr class="alert alert-danger">
+                            <th class="col-md-2 text-center verticalcenter">@Html.ActionLink("İsim", "admin", new { siralama = ViewBag.NameSortParm })</th>
+                            <th class="col-md-2 text-center verticalcenter">@Html.ActionLink("Soyİsim", "admin", new { siralama = ViewBag.SurNameSortParm })</th>
+                            <th class="col-md-2 text-center verticalcenter">Telefon</th>
+                            <th class="col-md-3 text-center verticalcenter">@Html.ActionLink("E-Mail", "admin", new { siralama = ViewBag.EmailSortParm })</th>
+                            <th class="col-md-1 text-center verticalcenter">@Html.ActionLink("Kayit Tarihi", "admin", new { siralama = ViewBag.DataSortParm })</th>
+                            
+                            @*<th class="col-md-2">Bitiş Tarihi</th>*@
+                            <th class="col-md-2 text-center  verticalcenter ">İşlem</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                
+                                @*<td>@item.firmaresmi</td>*@
+                                <td class="text-center verticalcenter">@item.ad</td>
+                                <td class="verticalcenter">@item.soyad</td>
+                                <td class="verticalcenter">@item.telefon</td>
+                                <td class="verticalcenter">@item.email</td>
+                                <td class="text-center  verticalcenter">@String.Format("{0:d}", @item.kayittarihi)</td>
+                               
+                                @*<td>@String.Format("{0:d}", @item.baslangictarihi)</td>
+                                    <td>@String.Format("{0:d}", @item.bitistarihi)</td>*@
+
+
+                                <td class="text-center verticalcenter">
+                                    <a href='javascript:;' data-toggle='tooltip modal' data-source="/Admin/AdminDuzenle?AdminID=@item.uyeId" data-title='Admin Düzenle' data-function='CloseModal' data-width='4' class='btn btn-xs btn-info tooltips' title='Düzenle'>Düzenle</a>
+                                    <a href="/Admin/AdminSil?AdminID=@item.uyeId" class='btn btn-xs btn-danger tooltips' onclick="return confirm('Bu  Admini silmek istediğinize emin misiniz?');" title='Sil'>Sil</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                    @Html.PagedListPager(Model, page => Url.Action("slider", new { page = page }), new PagedListRenderOptions { LinkToFirstPageFormat = "<< İlk", LinkToPreviousPageFormat = "< Önceki", LinkToNextPageFormat = "Sonraki >", LinkToLastPageFormat = "Son >>" })
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

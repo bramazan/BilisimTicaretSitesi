@@ -1,0 +1,68 @@
+﻿@{
+    Layout = null;
+}
+
+@model E_ticaret.Models.Kategori
+<h2>MarkaDuzenle</h2>
+
+
+<link href="~/assets/plugins/form-datepicker/css/datepicker.css" rel="stylesheet" />
+<script src="~/assets/plugins/form-datepicker/js/bootstrap-datepicker.js"></script>
+
+
+
+<div class="row">
+    <div class="col-sm-12">
+        @using (Html.BeginForm("KategoriDuzenle", "Admin", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+        {
+            @Html.HiddenFor(m => m.kategoriId)
+            <div class="row">
+                <div class="form-group">
+                   
+                </div>
+               
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="col-sm-2 control-label">Kategori Adı</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.kategoriadi, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="col-sm-2 control-label">Ana Kategori Id</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.anakategoriId, new { @class = "form-control", style = "width:250px;" })
+                        </div>
+                    </div>
+                </div>
+                @*<div class="form-group">
+                        <div class="col-md-12">
+                            <label class="col-sm-2 control-label">Bitiş Tarihi</label>
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(m => m.bitistarihi, new { @class = "form-control", style = "width:250px;" })
+                            </div>
+                        </div>
+                    </div>*@
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <div class="btn-toolbar pull-right">
+                            <input type="submit" value="Güncelle" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#bitistarihi").datepicker({ dateFormat: 'dd-MM-yyyy' });
+        $("#baslangictarihi").datepicker({ dateFormat: 'dd-MM-yyyy' });
+    });
+</script>

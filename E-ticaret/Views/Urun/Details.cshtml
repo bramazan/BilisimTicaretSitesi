@@ -1,0 +1,83 @@
+﻿@model E_ticaret.Models.Urun
+
+@{
+    ViewBag.Title = "Urun Detaylari";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Urun Detayları</h2>
+
+<div>
+    <h4>Urun</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.urunadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.urunadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.urunfiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.urunfiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.urunresim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.urunresim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kampanya1.kampanyabasligi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kampanya1.kampanyabasligi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kategori.kategoriadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kategori.kategoriadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marka.markaadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marka.markaadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Siparis1.siparisId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Siparis1.siparisId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrunOzellik.ozellikadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrunOzellik.ozellikadi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Duzenle", "Duzenle", new { id = Model.urunId }) |
+    @Html.ActionLink("Urunleri Listele", "Index")
+</p>

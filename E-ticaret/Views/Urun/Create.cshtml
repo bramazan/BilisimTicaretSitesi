@@ -1,0 +1,93 @@
+﻿@model E_ticaret.Models.Urun
+
+@{
+    ViewBag.Title = "Urun Yönetimi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3><a href="~/Urun" class="btn btn-primary">@E_ticaret.Resources.lang.urunlerilistele</a></h3>
+
+@using (Html.BeginForm("Create", "Urun", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>@E_ticaret.Resources.lang.uruneklemesayfasi</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+       
+        <div class="form-group">
+            <label class="control-label col-md-2">@E_ticaret.Resources.lang.urunadigir</label>
+            @*@Html.LabelFor(model => model.urunadi,"Urun Adını Giriniz", htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.urunadi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.urunadi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.kategoriId, E_ticaret.Resources.lang.kategorisec, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("kategoriId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.kategoriId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.markaId,E_ticaret.Resources.lang.markasec, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("markaId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.markaId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.siparisId, "siparisId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("siparisId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.siparisId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ozellikId, "ozellikId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ozellikId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ozellikId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.kampanyaId, "kampanyaId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("kampanyaId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.kampanyaId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.urunfiyat, E_ticaret.Resources.lang.urunfiyat, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.urunfiyat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.urunfiyat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.urunresim, E_ticaret.Resources.lang.urunresim, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="file" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value=@E_ticaret.Resources.lang.urunkaydet class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink(E_ticaret.Resources.lang.urunlerilistele, "Index")
+</div>

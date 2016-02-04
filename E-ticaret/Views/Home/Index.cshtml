@@ -1,0 +1,265 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="carouselBlk">
+    <div id="myCarousel" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="container">
+                    <a href="register.html"><img style='width:100%; height:100%; max-height:400px;' src="~/themes/images/carousel/1.jpg" alt="special offers" /></a>
+                    <div class="carousel-caption">
+                        <h4>Second Thumbnail label</h4>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                </div>
+            </div>
+
+            @foreach (var item in Model.slider)
+            {
+                <div class="item">
+                    <div class="container">
+                        <a href="register.html"><img style='width:100%; height:100%; max-height:400px;' src="data:image/png;base64,@System.Convert.ToBase64String(item.sliderfoto)" alt="" /></a>
+                        @*<div class="carousel-caption">
+                                <h4>Second Thumbnail label</h4>
+                                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            </div>*@
+                    </div>
+                </div>
+            }
+
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+</div>
+<div id="mainBody">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar ================================================== -->
+            @*Bu kısım sepet kısmı buraya kaç tane Seçili ürün varsa koyucaz *@
+            <div id="sidebar" class="span3">
+                <div class="well well-small"><a id="myCart" href="product_summary.html"><img src="~/themes/images/ico-cart.png" alt="cart"> Sepetiniz  <span class="badge badge-warning pull-right">$155.00</span></a></div>
+                <ul id="sideManu" class="nav nav-tabs nav-stacked">
+                    @{int sayac = 0; }
+                    @foreach (var item in Model.anaKategoriListesi)
+                    {
+                        if (sayac == 0)
+                        {
+                            <li class="subMenu open">
+                                <a>@item.kategoriadi</a>
+                                <ul>
+                                    @foreach (var item2 in Model.altkategorilistesi)
+                                    {
+                                        if (@item2.anakategoriId == @item.kategoriId)
+                                        {
+                                            <li><a href="/Home/products/@item2.kategoriId" +@item.kategoriid+""><i class="icon-chevron-right"></i>@item2.kategoriadi</a></li>
+
+                                        }
+
+                                    }
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="subMenu">
+                                <a>@item.kategoriadi</a>
+                                <ul style="display:none">
+                                    @foreach (var item2 in Model.altkategorilistesi)
+                                    {
+                                        if (@item2.anakategoriId == @item.kategoriId)
+                                        {
+                                            <li><a href="/Home/products/@item2.kategoriId" +@item.kategoriid+""><i class="icon-chevron-right"></i>@item2.kategoriadi</a></li>
+
+                                        }
+
+                                    }
+
+                                </ul>
+                            </li>
+                        }
+
+                        sayac++;
+                    }
+
+                </ul>
+                <br />
+                <h4>@E_ticaret.Resources.lang.gununurunleri</h4>
+@foreach (var item in Model.gununurunleri)
+{
+                <div class="thumbnail">
+                    @*Bu kısımda olan Thumbnailları resim olarak db den çekicez *@
+                    <a href="/Home/productsdetay/@item.urunId"><img src="data:image/png;base64,@System.Convert.ToBase64String(item.urunresim)" width="270" height="378" alt="" /></a>
+                    <div class="caption">
+                        <h5>@item.urunadi</h5>
+                        <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">EKLE <i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#"><h7>@item.urunfiyat ₺</h7></a></h4>
+                    </div>
+                </div><br />
+                
+    
+}
+                <div class="thumbnail">
+                    <img src="~/themes/images/payment_methods.png" title="Bootshop Payment Methods" alt="Payments Methods">
+                    <div class="caption">
+                        <h5>@E_ticaret.Resources.lang.Odeme</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- Sidebar end=============================================== -->
+            <div class="span9">
+                <div class="well well-small">
+                    @*Yine bu kısımdaki ürünler db den çekilicek*@
+                    <h4>@E_ticaret.Resources.lang.kampanyaliurun <small class="pull-right">@E_ticaret.Resources.lang.indirimdekiurun</small></h4>
+                    <div class="row-fluid">
+                        <div id="featured" class="carousel slide">
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <ul class="thumbnails">
+                                        <li class="span12">
+                                            <div class="thumbnail">
+                                               
+                                                <a href="product_details.html"><img style='width:100%; height:100%; max-height:400px;'><img src="~/themes/images/products/b1.jpg" alt=""></a>
+                                                <div class="caption">
+                                                  
+                                                    <h4><a class="btn" href="product_details.html"></a> </h4>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                @for (int i = 0; i < Math.Ceiling((Model.kampanyaSlider.Count + 0.0d) / 4); i++)
+                                {
+                                    <div class="item">
+                                        <ul class="thumbnails">
+                                            @for (int j = 0; j < 4; j++)
+                                            {
+                                                if (Model.kampanyaSlider.Count > i * 4 + j)
+                                                {
+                                                    <li class="span3">
+                                                        <div class="thumbnail">
+                                                            <i class="tag"></i>
+                                                            <span style="  position: absolute;  right: -5px;  top: 17px;  font-size: 10px;  color: #fff;">@Model.kampanyaSlider[i * 4 + j].indirimorani</span>
+                                                            <a href="product_details.html">
+                                                                <img style='width:100%; height:100%; max-height:400px;'><img src="data:image/png;base64,@System.Convert.ToBase64String(Model.kampanyaSlider[i * 4 + j].kampanyagorseli)">
+                                                            </a>
+                                                            <div class="caption">
+                                                                <h5>@Model.kampanyaSlider[i * 4 + j].Urun.urunadi</h5>
+                                                                <h4>
+
+                                                                    <a class="btn btn-success" href="product_details.html">@E_ticaret.Resources.lang.incele</a>
+                                                                    <span class="pull-right">
+                                                                        @((@Model.kampanyaSlider[i * 4 + j].Urun.urunfiyat) - ((@Model.kampanyaSlider[i * 4 + j].Urun.urunfiyat) * @Model.kampanyaSlider[i * 4 + j].indirimorani) / 100)
+                                                                    </span>
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                }
+                                            }
+
+                                        </ul>
+                                    </div>
+                                }
+
+                            </div>
+                            <a class="left carousel-control" href="#featured" data-slide="prev">‹</a>
+                            <a class="right carousel-control" href="#featured" data-slide="next">›</a>
+                        </div>
+                    </div>
+                </div>
+                <h4>@E_ticaret.Resources.lang.SonUrun</h4>
+
+
+ <ul class="thumbnails">
+@foreach (var item in Model.sonurunler)
+{
+
+    <li class="span3">
+        <div class="thumbnail">
+            <a href="/Home/productsdetay/@item.urunId"><img src="data:image/png;base64,@System.Convert.ToBase64String(item.urunresim)" width="270" height="378" alt="" /></a>
+            <div class="caption">
+                <h5>@item.urunadi</h5>
+                <p>
+
+                </p>
+
+                <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">@E_ticaret.Resources.lang.Ekle<i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#"><h7>@item.urunfiyat ₺</h7></a></h4>
+            </div>
+        </div>
+    </li>
+
+}
+     </ul>
+
+                <h4>@E_ticaret.Resources.lang.Encoksatan</h4>
+                 <ul class="thumbnails">
+@foreach (var item in Model.encoksatanurunler)
+{
+
+    <li class="span3">
+        <div class="thumbnail">
+            <a href="/Home/productsdetay/@item.urunId"><img src="data:image/png;base64,@System.Convert.ToBase64String(item.urunresim)" width="270" height="378" alt="" /></a>
+            <div class="caption">
+                <h5>@item.urunadi</h5>
+                <p>
+
+                </p>
+
+                <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">@E_ticaret.Resources.lang.Ekle<i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#"><h7>@item.urunfiyat ₺</h7></a></h4>
+            </div>
+        </div>
+    </li>
+
+}
+     </ul>
+
+
+
+                <h4>@E_ticaret.Resources.lang.yeniurunler</h4>
+                <ul class="thumbnails">
+                    @foreach (var item in Model.yeniurunler)
+                    {
+
+                        <li class="span3">
+                            <div class="thumbnail">
+                                <a href="/Home/productsdetay/@item.urunId"><img src="data:image/png;base64,@System.Convert.ToBase64String(item.urunresim)" width="270" height="378" alt="" /></a>
+                                <div class="caption">
+                                    <h5>@item.urunadi</h5>
+                                    <p>
+
+                                    </p>
+
+                                    <h4 style="text-align:center"><a class="btn" href="product_details.html"> <i class="icon-zoom-in"></i></a> <a class="btn" href="#">@E_ticaret.Resources.lang.Ekle<i class="icon-shopping-cart"></i></a> <a class="btn btn-primary" href="#"><h7>@item.urunfiyat ₺</h7></a></h4>
+                                </div>
+                            </div>
+                        </li>
+
+                    }
+                </ul>
+
+
+
+                
+
+
+
+            </div>
+            
+        </div>
+       
+    </div>
+
+
+
+
+
+
+
+    
+
+    </div>
+
+            

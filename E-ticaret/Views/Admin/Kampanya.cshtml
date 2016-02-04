@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "Kampanya";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Kampanya Yönetim Sayfası</h3>
+
+
+@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<E_ticaret.Models.Kampanya>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Kampanya Adına Göre Arama:@Html.TextBox("Arama")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<div class="panel panel-gray">
+    <div class="panel-heading">
+        <div class="col-md-12">
+            <h4>KAMPANYALAR</h4>
+
+
+            <a href="javascript:;" data-toggle="tooltip modal" data-width="4" data-source="/Admin/KampanyaEkle" data-title="Yeni Kampanya" data-function="CloseModal" class="btn btn-success btn-sm tooltips pull-right" style="margin-top:6px;" title="Yeni Kampanya"><i class="fa fa-plus">&nbsp;&nbsp; Yeni Kampanya</i></a>
+
+
+        </div>
+    </div>
+
+    <style>
+        .verticalcenter 
+        {
+            vertical-align: middle !important;
+        }
+    </style>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr class="alert alert-danger">
+                            <th class="col-md-1 text-center verticalcenter">Fotoğraf</th>
+                            <th class="col-md-1 text-center verticalcenter">@Html.ActionLink("Urun Adi", "kampanya", new { siralama = ViewBag.UrunadiSortParm })</th>
+                            <th class="col-md-2 text-center verticalcenter">@Html.ActionLink("Kampanya Adı", "kampanya", new { siralama = ViewBag.NameSortParm })</th>
+                            <th class="col-md-1 text-center verticalcenter">@Html.ActionLink("İndirim Oranı", "kampanya", new { siralama = ViewBag.IndirimSortParm })</th>
+                            <th class="col-md-2 text-center verticalcenter">Kampanya Hakkında</th>
+                            <th class="col-md-2 text-center verticalcenter">@Html.ActionLink("Başlangıç Tarihi", "kampanya", new { siralama = ViewBag.DateSortParm })</th>
+                            <th class="col-md-2 text-center verticalcenter">@Html.ActionLink("Bitiş Tarihi", "kampanya", new { siralama = ViewBag.FinishDateSortParm })</th>
+                            <th class="col-md-2 text-center verticalcenter">İşlem</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                @if (item.kampanyagorseli == null)
+                                {
+                                    <td><img style='width:100%; height:auto; border:solid 1px #cccccc;' src="~/assets/img/resimyok.png" alt="" /></td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <img style='width:100%; height:auto; border:solid 1px #cccccc;' src="data:image/png;base64,@System.Convert.ToBase64String(item.kampanyagorseli
+)" />
+                                    </td>
+                                }
+                                @*<td>@item.firmaresmi</td>*@
+
+                                <td class="text-center verticalcenter"> @if(item.Urun!=null)
+                                                                        {@item.Urun.urunadi}</td>
+                                <td class="text-center verticalcenter"> @item.kampanyabasligi</td>
+                                <td class="text-center verticalcenter"> @item.indirimorani</td>
+                                <td class="text-center verticalcenter"> @item.kampanyaaciklamasi</td>
+                                <td class="text-center verticalcenter"> @String.Format("{0:d}", @item.baslangictarihi)</td>
+                                <td class="text-center verticalcenter"> @String.Format("{0:d}", @item.bitistarihi)</td>
+                               
+
+
+                                
+                                <td class="text-center verticalcenter">
+                                    
+                                    <a href='javascript:;' data-toggle='tooltip modal' data-source="/Admin/KampanyaDuzenle?KampanyaID=@item.kampanyaId" data-title='Kampanya Düzenle' data-function='CloseModal' data-width='4' class='btn btn-xs btn-info tooltips' title='Düzenle'>Düzenle</a>
+                                    <a href="/Admin/KampanyaSil?KampanyaID=@item.kampanyaId" class='btn btn-xs btn-danger tooltips' onclick="return confirm('Bu Kampanyayı silmek istediğinize emin misiniz?');" title='Sil'>Sil</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                    @Html.PagedListPager(Model, page => Url.Action("kampanya", new { page = page }), new PagedListRenderOptions { LinkToFirstPageFormat = "<< İlk", LinkToPreviousPageFormat = "< Önceki", LinkToNextPageFormat = "Sonraki >", LinkToLastPageFormat = "Son >>" })
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

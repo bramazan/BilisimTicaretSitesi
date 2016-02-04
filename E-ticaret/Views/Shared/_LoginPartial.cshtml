@@ -1,0 +1,21 @@
+﻿@if (Session["kullanici"] != null)
+{
+    using (Html.BeginForm("LogOff", "Home", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+    @Html.ActionLink(Session["kullaniciAdi"].ToString(), "NewPass", "Home", new { @style = "font-weight: bold;" })
+    <a href="javascript:document.getElementById('logoutForm').submit()">@E_ticaret.Resources.lang.cikis</a>
+
+    <a href="~/Home/productssummary"><span class="btn btn-mini btn-primary"><i class="icon-shopping-cart icon-white"></i>@E_ticaret.Resources.lang.Sepet !</span> </a>@*Sepet buraya bağlanıcak*@
+        
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        
+        <li>@Html.ActionLink(E_ticaret.Resources.lang.UyeOl, "Signup", "Home", new { @style = "font-weight: bold;" })</li>
+    <li>@Html.ActionLink(E_ticaret.Resources.lang.Giris, "Signin", "Home",new { @style = "font-weight: bold;" })</li>
+    </ul>
+}

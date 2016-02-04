@@ -1,0 +1,114 @@
+﻿@model E_ticaret.Models.Uyeler
+
+@{
+    ViewBag.Title = "Signup";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<title>Üye Ol</title>
+<!-- container -->
+
+<div class="well well-transparent">
+    <div class="container">
+
+        <ol class="breadcrumb">
+            <li><a href="/Home/Index">Anasayfa</a></li>
+            <li class="active">Üye Ol</li>
+        </ol>
+
+        <div class="row">
+
+            <!-- Article main content -->
+            <article class="col-xs-12 maincontent">
+                @*<header class="page-header">
+                        <h1 class="page-title">Üye Ol</h1>
+                    </header>*@
+                @using (Html.BeginForm("Signup", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @*@Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)*@
+
+                    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+
+                                <h3 class="thin text-center">Yeni bir üyelik oluştur</h3>
+                                <p class="text-center text-muted">Üyeliğin varsa <a href="/Home/Signin">Üye Girişi</a> yaparak siteye giriş yapabilirsin.</p>
+                                <hr>
+
+                                <form>
+                                    <div class="top-margin">
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationSummary(true)
+                                    </div>
+                                    <div class="top-margin">
+                                        <label>Adınız<span class="text-danger">*</span></label>
+                                        @Html.TextBoxFor(model => model.ad, new { @class = "form-control" })
+                                    </div>
+                                    <div class="top-margin">
+                                        <label>Soyadınız<span class="text-danger">*</span></label>
+                                        @Html.TextBoxFor(model => model.soyad, new { @class = "form-control" })
+                                    </div>
+                                    <div class="top-margin">
+                                        <label>E-Posta Adresi<span class="text-danger">*</span></label>
+                                        @Html.TextBoxFor(model => model.email, new { @class = "form-control" })
+                                    </div>
+                                    <div class="top-margin">
+                                        <label>Guvenlik Sorusu<span class="text-danger">*</span></label>
+                                        @Html.TextBoxFor(model => model.guvenliksorusu, new { @class = "form-control" })
+                                    </div>
+
+                                    <div class="top-margin">
+                                        <label>Guvenlik Sorusu Cevap<span class="text-danger">*</span></label>
+                                        @Html.TextBoxFor(model => model.guvenliksorusucevap, new { @class = "form-control" })
+                                    </div>
+
+                                    <div class="top-margin">
+                                        <label>Cinsiyet<span class="text-danger">*</span></label>
+                                        @Html.DropDownList("cinsiyetListesi", null, htmlAttributes: new { @class = "form-control" })
+                                    </div>
+
+                                    <div class="top-margin">
+                                        <label>Telefon<span class="text-danger">*</span></label>
+                                        @Html.TextBoxFor(model => model.telefon, new { @class = "form-control" })
+                                    </div>
+
+                                    <div class="top-margin">
+                                        <label>Adres<span class="text-danger">*</span></label>
+                                        @Html.TextBoxFor(model => model.adres, new { @class = "form-control" })
+                                    </div>
+                                    @*<div class="top-margin">
+                                            <label>Kullanıcı Adı<span class="text-danger">*</span></label>
+                                            @Html.TextBoxFor(model => model., new { @class = "form-control" })
+                                        </div>*@
+
+                                    <div class="top-margin">
+                                        <label>Şifre<span class="text-danger">*</span></label>
+                                        @Html.PasswordFor(model => model.parola, new { @class = "form-control" })
+                                    </div>
+                                    @*<div class="col-sm-6">
+                                            <label>Tekrar Şifre<span class="text-danger">*</span></label>
+                                           @Html.PasswordFor(model => model.ConfirmPass, new { @class = "form-control" })
+                                        </div>*@
+
+
+                                    <hr>
+
+                                    <div class="row">
+                                        <div class="col-lg-4 text-right">
+                                            <input type="submit" value="Kayıt Ol" class="btn btn-success" />
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            </article>
+            <!-- /Article -->
+
+        </div>
+    </div>	<!-- /container -->
+</div>
+

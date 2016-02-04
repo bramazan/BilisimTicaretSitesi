@@ -1,0 +1,150 @@
+﻿<h2>Admin Duzenle</h2>
+
+@{
+    Layout = null;
+}
+
+@model E_ticaret.Models.Uyeler
+
+<link href="~/assets/plugins/form-datepicker/css/datepicker.css" rel="stylesheet" />
+<script src="~/assets/plugins/form-datepicker/js/bootstrap-datepicker.js"></script>
+
+
+
+<div class="row">
+    <div class="col-sm-12">
+        @using (Html.BeginForm("AdminDuzenle", "Admin", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+        {
+            @Html.HiddenFor(m => m.uyeId)
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="col-sm-2 control-label">Rol Seçin</label>
+                        <div class="col-sm-10">
+                            @Html.DropDownList("rolId", null, htmlAttributes: new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="col-sm-2 control-label">Adınız</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.ad, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="col-sm-2 control-label">SoyAdınız</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.soyad, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="col-sm-2 control-label">Cinsiyet</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.cinsiyet, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="col-sm-2 control-label">Telefon No</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.telefon, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.email, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="col-sm-2 control-label">Parola</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.parola, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="col-sm-2 control-label">T.C</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.tc, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="col-sm-2 control-label">Guvenlik Sorusu</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.guvenliksorusu, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="col-sm-2 control-label">Guvenlik Sorusu Cevap</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.guvenliksorusucevap, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="col-sm-2 control-label">Kayıt Tarihi</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.kayittarihi ,new { @class = "form-control", style = "width:250px;" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <label class="col-sm-2 control-label">Adres</label>
+                        <div class="col-sm-10">
+                            @Html.TextBoxFor(m => m.adres, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+
+                
+
+              
+
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <div class="btn-toolbar pull-right">
+                            <input type="submit" value="Güncelle" class="btn btn-success" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#kayittarihi").datepicker({ dateFormat: 'dd-MM-yyyy' });
+        $("#kayittarihi").datepicker({ dateFormat: 'dd-MM-yyyy' });
+    });
+</script>

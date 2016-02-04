@@ -1,0 +1,127 @@
+﻿@*@model IEnumerable<E_ticaret.Models.Urun>*@
+
+@*paged list kullanıldıgı için model tanımı degişiyor*@
+
+@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<E_ticaret.Models.Urun>
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<p>
+    <h3><a href="~/Urun/Create" class="btn btn-primary">@E_ticaret.Resources.lang.yeniurun</a></h3>
+    @*@Html.ActionLink("Yeni Urun", "Create")*@
+</p>
+
+@using( Html.BeginForm())
+{
+   <p>
+   @E_ticaret.Resources.lang.urunarama@Html.TextBox("Arama")
+       <input type="submit" value=@E_ticaret.Resources.lang.Ara />
+    </p>
+}
+
+    
+<table class="table">
+    <tr>
+
+        <th class="col-md-1">@E_ticaret.Resources.lang.foto</th>
+
+        <th>
+            @Html.ActionLink(E_ticaret.Resources.lang.urunadi, "Index", new { siralama = ViewBag.NameSortParm })
+            @*@Html.DisplayNameFor(model => model.urunadi)*@
+        </th>
+        <th>
+            @Html.ActionLink(E_ticaret.Resources.lang.urunfiyat, "Index", new { siralama = ViewBag.PriceSortParm })
+        </th>
+        
+       
+        @*<th>
+            @Html.DisplayNameFor(model => model.Kampanya1.kampanyabasligi)
+        </th>*@
+        <th>
+            @Html.ActionLink(E_ticaret.Resources.lang.kategori, "Index", new { siralama = ViewBag.KategoriSortParm })
+        </th>
+        <th>
+            @Html.ActionLink(E_ticaret.Resources.lang.markaad, "Index", new { siralama = ViewBag.MarkaSortParm })
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Siparis1.siparisId)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.UrunOzellik.ozellikadi)
+        </th>*@
+        <th>
+            @E_ticaret.Resources.lang.islem
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @if (item.urunresim == null)
+        {
+            <td><img style='width:100%; height:auto; border:solid 1px #cccccc;' src="~/assets/img/resimyok.png" alt="" /></td>
+        }
+        else
+        {
+            <td>
+                <img style='width:100%; height:auto; border:solid 1px #cccccc;' src="data:image/png;base64,@System.Convert.ToBase64String(item.urunresim)" />
+            </td>
+        }
+
+
+        <td>
+            @Html.DisplayFor(modelItem => item.urunadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.urunfiyat)
+        </td>
+        
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Kampanya1.kampanyabasligi)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Kategori.kategoriadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marka.markaadi)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Siparis1.siparisId)
+        </td>*@
+        @*<td>
+            @Html.DisplayFor(modelItem => item.UrunOzellik.ozellikadi)
+        </td>*@
+        <td>
+            @Html.ActionLink(E_ticaret.Resources.lang.duzenle, "Edit", new { id = item.urunId }) |
+            @Html.ActionLink(E_ticaret.Resources.lang.detaylar, "Details", new { id = item.urunId }) |
+            @Html.ActionLink(E_ticaret.Resources.lang.sil, "Delete", new { id = item.urunId })
+        </td>
+    </tr>
+}
+
+
+    
+
+   
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }), new PagedListRenderOptions { LinkToFirstPageFormat = "<< İlk", LinkToPreviousPageFormat = "< Önceki", LinkToNextPageFormat = E_ticaret.Resources.lang.sonraki, LinkToLastPageFormat = "Son >>" })
+
+
+
+
+
+
+      @*<div class="pagedList">
+        @Html.PagedListPager(Model, sayfa => Url.Action("Index", new { sayfa }), PagedListRenderOptions.PageNumbersOnly)
+        </div>*@
+</table>
+
+
+

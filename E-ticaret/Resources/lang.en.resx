@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Adresler" xml:space="preserve">
+    <value>ADDRESSES</value>
+  </data>
+  <data name="AnaSafya" xml:space="preserve">
+    <value>HOME PAGE</value>
+  </data>
+  <data name="Ara" xml:space="preserve">
+    <value>GO</value>
+  </data>
+  <data name="Arama" xml:space="preserve">
+    <value>SEARCH</value>
+  </data>
+  <data name="Bilgilendirme" xml:space="preserve">
+    <value>INFORMATION</value>
+  </data>
+  <data name="Bilgileriniz" xml:space="preserve">
+    <value>PERSONAL INFORMATION</value>
+  </data>
+  <data name="Duyurular" xml:space="preserve">
+    <value>LEGAL NOTICE</value>
+  </data>
+  <data name="Ekle" xml:space="preserve">
+    <value>ADD</value>
+  </data>
+  <data name="Encoksatan" xml:space="preserve">
+    <value>TOP SELLERS</value>
+  </data>
+  <data name="Eposta" xml:space="preserve">
+    <value>your E-mail</value>
+  </data>
+  <data name="Giris" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Hakkimizda" xml:space="preserve">
+    <value>ABOUT</value>
+  </data>
+  <data name="Hesabiniz" xml:space="preserve">
+    <value>YOUR ACCOUNT</value>
+  </data>
+  <data name="Hosgeldin" xml:space="preserve">
+    <value>Welcome !</value>
+  </data>
+  <data name="Iletisim" xml:space="preserve">
+    <value>CONTACT</value>
+  </data>
+  <data name="indirimleriniz" xml:space="preserve">
+    <value>DISCOUNT</value>
+  </data>
+  <data name="KampanyaUrun" xml:space="preserve">
+    <value>FEATURED PRODUCTS</value>
+  </data>
+  <data name="Kosullar" xml:space="preserve">
+    <value>TERMS AND CONDITIONS</value>
+  </data>
+  <data name="Odeme" xml:space="preserve">
+    <value>Payment Methods</value>
+  </data>
+  <data name="ozelteklif" xml:space="preserve">
+    <value>OUR OFFERS</value>
+  </data>
+  <data name="Sepet" xml:space="preserve">
+    <value>Chart</value>
+  </data>
+  <data name="SonUrun" xml:space="preserve">
+    <value>Recently Viewed Products</value>
+  </data>
+  <data name="Sosyal" xml:space="preserve">
+    <value>FOLLOW US FROM SOCIAL MEDIA</value>
+  </data>
+  <data name="SSS" xml:space="preserve">
+    <value>FAQ</value>
+  </data>
+  <data name="Teklif" xml:space="preserve">
+    <value>SPECIAL OFFERS</value>
+  </data>
+  <data name="Tumsiparis" xml:space="preserve">
+    <value>ORDER HISTORY</value>
+  </data>
+  <data name="Ureticiler" xml:space="preserve">
+    <value>MANUFACTURERS</value>
+  </data>
+  <data name="Urunler" xml:space="preserve">
+    <value>NEW PRODUCTS</value>
+  </data>
+  <data name="Uyelikislem" xml:space="preserve">
+    <value>ACCOUNT</value>
+  </data>
+  <data name="UyeOl" xml:space="preserve">
+    <value>Sign in</value>
+  </data>
+  <data name="admin" xml:space="preserve">
+    <value>Add New Admin</value>
+  </data>
+  <data name="Benihatirla" xml:space="preserve">
+    <value>Remember Me</value>
+  </data>
+  <data name="cikis" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="incele" xml:space="preserve">
+    <value>VIEW</value>
+  </data>
+  <data name="kampanyayonetim" xml:space="preserve">
+    <value>Campaign Management</value>
+  </data>
+  <data name="Kapat" xml:space="preserve">
+    <value>CLOSE</value>
+  </data>
+  <data name="kategoriyonetim" xml:space="preserve">
+    <value>Category Management</value>
+  </data>
+  <data name="markayonetim" xml:space="preserve">
+    <value>Brand Management</value>
+  </data>
+  <data name="sifre" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="slideryonetim" xml:space="preserve">
+    <value>Slider Management</value>
+  </data>
+  <data name="Tum" xml:space="preserve">
+    <value>ALL</value>
+  </data>
+  <data name="urunyonetim" xml:space="preserve">
+    <value>Product Management</value>
+  </data>
+  <data name="aciklama" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="adminad" xml:space="preserve">
+    <value>Admin Name</value>
+  </data>
+  <data name="adminsoyad" xml:space="preserve">
+    <value>Admin Surname</value>
+  </data>
+  <data name="baslik" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="Cgerekli" xml:space="preserve">
+    <value>Show only the required fields</value>
+  </data>
+  <data name="cinsiyet" xml:space="preserve">
+    <value>Sex</value>
+  </data>
+  <data name="Cistek" xml:space="preserve">
+    <value>Request or Complaint Report</value>
+  </data>
+  <data name="Cmesaj" xml:space="preserve">
+    <value>Your message has been sent successfully.</value>
+  </data>
+  <data name="detaylar" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="dosyasec" xml:space="preserve">
+    <value>Choose File</value>
+  </data>
+  <data name="dosyasecilemedi" xml:space="preserve">
+    <value>Not Selected File</value>
+  </data>
+  <data name="duzenle" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="foto" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="gonder" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="gununurunleri" xml:space="preserve">
+    <value>Featured Products</value>
+  </data>
+  <data name="Hakkimizdaa" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="iletisimm" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="ilktarih" xml:space="preserve">
+    <value>Start Date</value>
+  </data>
+  <data name="indirimdekiurun" xml:space="preserve">
+    <value>products on sale</value>
+  </data>
+  <data name="indirimorani" xml:space="preserve">
+    <value>Discount Rate</value>
+  </data>
+  <data name="islem" xml:space="preserve">
+    <value>Operation</value>
+  </data>
+  <data name="kampanyaadi" xml:space="preserve">
+    <value>Campaign Name</value>
+  </data>
+  <data name="kampanyaarama" xml:space="preserve">
+    <value>Search By Campaign Name :</value>
+  </data>
+  <data name="kampanyahakkinda" xml:space="preserve">
+    <value>About Campaign</value>
+  </data>
+  <data name="kampanyaliurun" xml:space="preserve">
+    <value>Speciel Products</value>
+  </data>
+  <data name="kategori" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="kategoriarama" xml:space="preserve">
+    <value>Search By Category Name :</value>
+  </data>
+  <data name="kategorisec" xml:space="preserve">
+    <value>Select Category</value>
+  </data>
+  <data name="kaydet" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Kayittarihi" xml:space="preserve">
+    <value>Register Date</value>
+  </data>
+  <data name="markaad" xml:space="preserve">
+    <value>Brand Name</value>
+  </data>
+  <data name="markaarama" xml:space="preserve">
+    <value>Search By Brand Name :</value>
+  </data>
+  <data name="markahakkinda" xml:space="preserve">
+    <value>About Brand</value>
+  </data>
+  <data name="markalar" xml:space="preserve">
+    <value>Brands</value>
+  </data>
+  <data name="markasec" xml:space="preserve">
+    <value>Select Brand</value>
+  </data>
+  <data name="nerede" xml:space="preserve">
+    <value>Where are we ?</value>
+  </data>
+  <data name="sfr" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="sil" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="sliderarama" xml:space="preserve">
+    <value>Search By Slider Name :</value>
+  </data>
+  <data name="sonraki" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="sontarih" xml:space="preserve">
+    <value>Finish Date</value>
+  </data>
+  <data name="telefon" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="Tumkampanya" xml:space="preserve">
+    <value>Campaigns </value>
+  </data>
+  <data name="urunadi" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="urunadigir" xml:space="preserve">
+    <value>Enter product name</value>
+  </data>
+  <data name="urunarama" xml:space="preserve">
+    <value>Search By Product Name :</value>
+  </data>
+  <data name="uruneklemesayfasi" xml:space="preserve">
+    <value>Adding Product Page</value>
+  </data>
+  <data name="urunfiyat" xml:space="preserve">
+    <value>Product Price</value>
+  </data>
+  <data name="urunkaydet" xml:space="preserve">
+    <value>Save Product</value>
+  </data>
+  <data name="urunlerilistele" xml:space="preserve">
+    <value>List Of Products</value>
+  </data>
+  <data name="urunresim" xml:space="preserve">
+    <value>Product Photo</value>
+  </data>
+  <data name="uyead" xml:space="preserve">
+    <value>Member Name</value>
+  </data>
+  <data name="uyearama" xml:space="preserve">
+    <value>Search By Member Name :</value>
+  </data>
+  <data name="uyeler" xml:space="preserve">
+    <value>Members</value>
+  </data>
+  <data name="uyelikislemleri" xml:space="preserve">
+    <value>Membership Management</value>
+  </data>
+  <data name="uyeoll" xml:space="preserve">
+    <value>REGISTER</value>
+  </data>
+  <data name="uyesoyad" xml:space="preserve">
+    <value>Member Surname</value>
+  </data>
+  <data name="yeniadmin" xml:space="preserve">
+    <value>New Admin</value>
+  </data>
+  <data name="yenikampanya" xml:space="preserve">
+    <value>New Campaign</value>
+  </data>
+  <data name="yenikategori" xml:space="preserve">
+    <value>New Category</value>
+  </data>
+  <data name="yenimarka" xml:space="preserve">
+    <value>New Brand</value>
+  </data>
+  <data name="yenislide" xml:space="preserve">
+    <value>New Slide</value>
+  </data>
+  <data name="yeniurun" xml:space="preserve">
+    <value>New Product</value>
+  </data>
+  <data name="yeniuye" xml:space="preserve">
+    <value>New Member</value>
+  </data>
+  <data name="marka" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="markaekle" xml:space="preserve">
+    <value>Add Brand</value>
+  </data>
+</root>

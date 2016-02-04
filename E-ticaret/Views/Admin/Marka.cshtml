@@ -1,0 +1,88 @@
+﻿
+
+@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<E_ticaret.Models.Marka>
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = @E_ticaret.Resources.lang.marka;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <p>
+        @E_ticaret.Resources.lang.markaarama@Html.TextBox("Arama")
+        <input type="submit" value=@E_ticaret.Resources.lang.Ara />
+    </p>
+}
+
+
+<div class="panel panel-gray">
+    <div class="panel-heading">
+        <div class="col-md-12">
+            <h4>@E_ticaret.Resources.lang.markalar</h4>
+
+
+            <a href="javascript:;" data-toggle="tooltip modal" data-width="4" data-source="/Admin/MarkaEkle" data-title=@E_ticaret.Resources.lang.yenimarka data-function="CloseModal" class="btn btn-success btn-sm tooltips pull-right" style="margin-top:6px;" title=@E_ticaret.Resources.lang.yenimarka><i class="fa fa-plus">&nbsp;&nbsp; @E_ticaret.Resources.lang.yenimarka</i></a>
+
+
+        </div>
+    </div>
+
+    <style>
+        .verticalcenter{vertical-align:middle !important;}
+    </style>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr class="alert alert-danger">
+                            <th class="col-md-1 text-center verticalcenter">@E_ticaret.Resources.lang.foto</th>
+                            <th class="col-md-2 text-center verticalcenter">@Html.ActionLink(E_ticaret.Resources.lang.markaad, "marka", new { siralama = ViewBag.NameSortParm })</th>
+                            <th class="col-md-6 text-center verticalcenter">@E_ticaret.Resources.lang.markahakkinda</th>
+                            @*<th class="col-md-2">Bitiş Tarihi</th>*@
+                            <th class="col-md-3 text-center  verticalcenter ">@E_ticaret.Resources.lang.islem</th>
+                                
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                @if (item.firmaresmi== null)
+                                {
+                                    <td class="verticalcenter"><img style='width:100%; height:auto; border:solid 1px #cccccc;' src="~/assets/img/resimyok.png" alt="" /></td>
+                                }
+                                else
+                                {
+                                    <td class="verticalcenter">
+                                        <img style='width:100%; height:auto; border:solid 1px #cccccc;' src="data:image/png;base64,@System.Convert.ToBase64String(item.firmaresmi)" />
+                                    </td>
+                                }
+                                @*<td>@item.firmaresmi</td>*@
+                                <td class="text-center verticalcenter">@item.markaadi</td>
+                                <td class="verticalcenter">@item.aciklama</td>
+                                @*<td>@String.Format("{0:d}", @item.baslangictarihi)</td>
+                                <td>@String.Format("{0:d}", @item.bitistarihi)</td>*@
+                                
+                                 
+                                <td class="text-center verticalcenter">
+                                    <a href='javascript:;' data-toggle='tooltip modal' data-source="/Admin/MarkaDuzenle?MarkaID=@item.markaId" data-title=@E_ticaret.Resources.lang.duzenle data-function='CloseModal' data-width='4' class='btn btn-xs btn-info tooltips' title=@E_ticaret.Resources.lang.duzenle>@E_ticaret.Resources.lang.duzenle</a>
+                                    <a href="/Admin/MarkaSil?MarkaID=@item.markaId" class='btn btn-xs btn-danger tooltips' onclick="return confirm('Bu  Markayı silmek istediğinize emin misiniz?');" title='Sil'>@E_ticaret.Resources.lang.sil</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                    @Html.PagedListPager(Model, page => Url.Action("marka", new { page = page }), new PagedListRenderOptions { LinkToFirstPageFormat = "<< İlk", LinkToPreviousPageFormat = "< Önceki", LinkToNextPageFormat = @E_ticaret.Resources.lang.sonraki, LinkToLastPageFormat = "Son >>" })
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+

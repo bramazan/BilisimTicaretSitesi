@@ -1,0 +1,132 @@
+﻿@model E_ticaret.Models.Giris
+@{
+    Layout =null ;
+}
+
+@*@Html.BeginForm()
+{
+@Html.TextBoxFor(model=>model.EPosta)
+@Html.PasswordFor(model=>model.Parola)
+<button type="submit" >Giriş</button>
+}*@
+
+
+<!DOCTYPE html>
+<title>Login</title>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Sakaya Bilişim Mağazaları Admin Giriş Paneli</title>
+    <script src="/logincssjs/Css/js/jquery-1.10.2.js"></script>
+    <link href="/logincssjs/Css/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="/logincssjs/Css/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="/logincssjs/Css/js/bootstrap.min.js"></script>
+    <link href="/logincssjs/Css/css/ui-lightness/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" />
+    <script src="/logincssjs/Css/js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="/logincssjs/Css/jquery.poshytip.min.js"></script>
+    <link href="/logincssjs/Css/tip-yellowsimple.css" rel="stylesheet" />
+    <link href="/logincssjs/Css/styles.css" rel="stylesheet" />
+    <link href="/logincssjs/Css/navbar.css" rel="stylesheet" />
+    
+    <style>
+        #rblChoice tr {
+            float: left;
+            margin-right: 5px;
+            padding-left: 5px;
+        }
+
+        #rblChoice label {
+            padding-left: 5px;
+            margin-bottom: 0px;
+        }
+
+        .verticalcenter 
+        {
+            vertical-align: middle !important;
+        }
+
+    </style>
+
+
+</head>
+<body style="background: #292929 url(/logincssjs/img/left-menu-bg.png);">
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary()
+        <div>
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <a class="brand" href="#"></a>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <div style="">
+               
+                <div class="container">
+                   
+                    <div class="row">
+                        <div class="col-lg-4">
+                       
+                            @*<img style="margin-top:25%;" src="/_logincssjs/_i/decrypted.png" />*@
+                        </div>
+                        <div class="col-lg-3">
+                            <section>
+                                <font size="6" face="Arial" color="white"><center>Admin Login</center> </font>
+                                <table class="table table-condensed" style="margin-top: 15px; border-radius: 10px;">
+                                    <tr>
+
+                                        <th style="text-align: center; border: none;">
+                                            <img style="margin-top: 25%;" src="/logincssjs/img/decrypted.png" />
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.LabelFor(model => model.EPosta)
+                                            @Html.TextBoxFor(model=> model.EPosta, new { title = "Kullanıcı adınızı giriniz.", @Value = @ViewBag.user })
+                                            @*@Html.TextBoxFor(model => model.EPosta)*@
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.LabelFor(model=> model.Parola)
+                                            @Html.PasswordFor(model=> model.Parola, new { title = "Kullanıcı şifrenizi giriniz.", @Value = @ViewBag.password })
+                                     
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="submit" class="btn btn-success" value="Giriş"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                           
+
+                                            @*<asp:Button ID="btnLogin" runat="server" Text="Giriş" OnClick="btnLogin_Click" CssClass="btn btn-success btn-block" />*@<br />
+                                            @*<asp:Panel ID="pnlGeneralErrors" Visible="false" Style="margin-bottom: 0px; padding: 6px; font-size: 85%;" runat="server" CssClass="label label-danger">
+                                                <asp:Literal ID="ltrError" runat="server"></asp:Literal>
+                                            </asp:Panel>*@
+                                        </td>
+                                    </tr>
+                                </table>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <footer>
+                    <p class="col-lg-offset-3" style="color: white;">
+                        <font size="3" face="Arial" color="white"><center>    </center> </font>
+                        
+                    </p>
+                </footer>
+            </div>
+        </div>
+    }
+</body>
+</html>

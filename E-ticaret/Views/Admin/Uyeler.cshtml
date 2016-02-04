@@ -1,0 +1,91 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<E_ticaret.Models.Uyeler>
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "Uyeler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <p>
+        Uye Adına Göre Arama:@Html.TextBox("Arama")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+
+<div class="panel panel-gray">
+    <div class="panel-heading">
+        <div class="col-md-12">
+            <h4>UYELER</h4>
+
+
+            <a href="javascript:;" data-toggle="tooltip modal" data-width="4" data-source="/Admin/UyeEkle" data-title="Yeni Uye" data-function="CloseModal" class="btn btn-success btn-sm tooltips pull-right" style="margin-top:6px;" title="Yeni  Uye"><i class="fa fa-plus">&nbsp;&nbsp; Yeni  Uye</i></a>
+
+
+        </div>
+    </div>
+
+    <style>
+        .verticalcenter {
+            vertical-align: middle !important;
+        }
+    </style>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr class="alert alert-danger">
+                            <th class="col-md-1 text-center verticalcenter">@Html.ActionLink("Uye Adı", "uyeler", new { siralama = ViewBag.NameSortParm })</th>
+                            <th class="col-md-1 text-center verticalcenter">Soyad</th>
+                            <th class="col-md-2 text-center verticalcenter">Telefon</th>
+                            <th class="col-md-2 text-center  verticalcenter ">E-Mail</th>
+                            <th class="col-md-1 text-center  verticalcenter ">Şifre</th>
+                            <th class="col-md-1 text-center  verticalcenter ">Cinsiyet</th>
+                            <th class="col-md-2 text-center  verticalcenter ">Adres</th>
+                            <th class="col-md-1 text-center  verticalcenter ">Kayıt Tarihi</th>
+                            <th class="col-md-1 text-center  verticalcenter ">İşlem</th>
+                         
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                               
+                                @*<td>@item.firmaresmi</td>*@
+                                <td class="verticalcenter">@item.ad</td>
+                                <td class="verticalcenter">@item.soyad</td>
+                               
+                                <td class="verticalcenter">@item.telefon</td>
+                                <td class="verticalcenter">@item.email</td>
+                                
+                                <td class="verticalcenter">@item.parola</td>
+                                <td class="verticalcenter">@item.cinsiyet</td>
+                                
+                                <td class="verticalcenter">@item.adres</td>
+                               
+                                <td>@String.Format("{0:d}", @item.kayittarihi)</td>
+                                    @*<td>@String.Format("{0:d}", @item.bitistarihi)</td>*@
+
+
+                                <td class="text-center verticalcenter">
+                                    <a href='javascript:;' data-toggle='tooltip modal' data-source="/Admin/UyeDuzenle?UyeID=@item.uyeId" data-title='Uye Düzenle' data-function='CloseModal' data-width='4' class='btn btn-xs btn-info tooltips' title='Düzenle'>Düzenle</a>
+                                    <a href="/Admin/UyeSil?UyeID=@item.uyeId" class='btn btn-xs btn-danger tooltips' onclick="return confirm('Bu  Üyeyi silmek istediğinize emin misiniz?');" title='Sil'>Sil</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                    @Html.PagedListPager(Model, page => Url.Action("uye", new { page = page }), new PagedListRenderOptions { LinkToFirstPageFormat = "<< İlk", LinkToPreviousPageFormat = "< Önceki", LinkToNextPageFormat = "Sonraki >", LinkToLastPageFormat = "Son >>" })
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
